@@ -1,0 +1,44 @@
+﻿@page
+@model internRegistration.Pages.ListModel
+@{
+}
+ 
+<br>
+
+<h2>
+    List of the interns 
+</h2>
+<a class="btn btn-primary btn-sm " href ="/Create"> New Intern</a>
+ <table class=" table">
+     <thead>
+         <tr>
+             <th> Id</th>
+             <th> Name</th>
+             <th> Email</th>
+             <th> Phone</th>
+             <th> Address</th>
+             <th> Created on </th>
+             <th> Action</th>
+         </tr>
+     </thead>
+
+     <tbody>
+        @foreach ( var item in Model.listInterns)
+        {
+            <tr>
+
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class=" btn btn-primary btn-sm" href="/Edit?id"> Edit</a>
+                    <a class=" btn btn-danger btn-sm" href="/Delete?id">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+ </table>
