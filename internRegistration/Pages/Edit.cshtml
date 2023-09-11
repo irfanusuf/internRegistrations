@@ -1,26 +1,29 @@
 ﻿@page
-@model internRegistration.Pages.CreateModel
+@model internRegistration.Pages.EditModel
 @{
 }
 
 
+
 <br>
-<h2> New Intern </h2>
+<h2> Edit Intern Details </h2>
 
 
 @if (Model.errorMessage.Length > 0)
 {
     <div class=" alert alert-warning alert-dismissible fade show " role="alert">
-<strong> @Model.errorMessage</strong>
-<button type ="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        <strong> @Model.errorMessage</strong>
+        <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
     </div>
 }
 
 <form method="POST">
+    <input type="hidden" name="id" value="@Model.internInfo.id" />
+
     <div class=" row mb-3">
         <label class=" col-sm-3 col-form-label "> Name</label>
         <div class=" col-sm-6">
-            <input  type ="text" class="form-control" name="name" value="@Model.internInfo.name"/>
+            <input type="text" class="form-control" name="name" value="@Model.internInfo.name" />
         </div>
     </div>
 
@@ -31,7 +34,7 @@
         </div>
     </div>
 
-     <div class=" row mb-3">
+    <div class=" row mb-3">
         <label class=" col-sm-3 col-form-label "> Phone</label>
         <div class=" col-sm-6">
             <input type="text" class="form-control" name="phone" value="@Model.internInfo.phone" />
@@ -47,10 +50,10 @@
 
     @if (Model.successMessage.Length > 0)
     {
-    <div class=" alert alert-success alert-dismissible fade show " role="alert">
-        <strong> @Model.successMessage</strong>
-        <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-    </div>
+        <div class=" alert alert-success alert-dismissible fade show " role="alert">
+            <strong> @Model.successMessage</strong>
+            <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
     }
 
 
@@ -60,9 +63,11 @@
             <button type="submit" class=" btn btn-primary "> Submit</button>
         </div>
         <div class=" col-sm-3 d-grid">
-           <a class=" btn btn-outline-primary " href="/" role="button"> Cancel</a>
+            <a class=" btn btn-outline-primary " href="/" role="button"> Cancel</a>
         </div>
-       
+
     </div>
 
 </form>
+
+

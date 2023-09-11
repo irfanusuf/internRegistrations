@@ -4,6 +4,17 @@ using System.Data.SqlClient;
 
 namespace internRegistration.Pages
 {
+
+
+    public class InternInfo
+    {
+        public string id;
+        public string name; 
+        public string email;
+        public string phone;
+        public string address;
+        public string created_at;
+    }
     public class ListModel : PageModel
     {
         public List<InternInfo> listInterns = new List<InternInfo>();
@@ -47,13 +58,5 @@ namespace internRegistration.Pages
 
 
 
-    public class InternInfo
-    {
-        public string id;
-        public string name;
-        public string email;
-        public string phone;
-        public string address;
-        public string created_at;
-    }
+    
 }

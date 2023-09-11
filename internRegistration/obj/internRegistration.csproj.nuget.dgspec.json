@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistration\\internRegistration\\internRegistration.csproj": {}
+    "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistrations\\internRegistration\\internRegistration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistration\\internRegistration\\internRegistration.csproj": {
+    "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistrations\\internRegistration\\internRegistration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistration\\internRegistration\\internRegistration.csproj",
+        "projectUniqueName": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistrations\\internRegistration\\internRegistration.csproj",
         "projectName": "internRegistration",
-        "projectPath": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistration\\internRegistration\\internRegistration.csproj",
+        "projectPath": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistrations\\internRegistration\\internRegistration.csproj",
         "packagesPath": "C:\\Users\\ibn usuf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistration\\internRegistration\\obj\\",
+        "outputPath": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistrations\\internRegistration\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ibn usuf\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u94x+Nb1aGAJ0WAgW0riRiEQ0JUsHl+xU1g7YMYrIvZbwpYp+fxCW6ZDWRb1Gl98h8tuBWudszALjwxmWJqFvQ==",
+  "dgSpecHash": "evtliZMqlAzcJjDzWcPOvvvNAMFwppz+IaEWgyI8NLoAR1Sgj8ztCicCqMmIkkudrDJz0S4Hd8olcDA3cGcEaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistration\\internRegistration\\internRegistration.csproj",
+  "projectFilePath": "C:\\Users\\ibn usuf\\Desktop\\asp.net projects\\internRegistrations\\internRegistration\\internRegistration.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ibn usuf\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\ibn usuf\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
