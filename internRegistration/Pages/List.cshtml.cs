@@ -22,7 +22,7 @@ namespace internRegistration.Pages
         {
             try
             {
-                string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=internsDatabase;Integrated Security=True ";
+                string connectionString = "Data Source=.\\sqlexpress;Integrated Security=True ";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

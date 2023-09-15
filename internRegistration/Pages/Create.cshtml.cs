@@ -29,7 +29,7 @@ namespace internRegistration.Pages
             // save the new client into the database
             try
             {
-                String connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=internsDatabase;Integrated Security=True";
+                String connectionString = "Data Source=.\\sqlexpress;Integrated Security=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection .Open();
