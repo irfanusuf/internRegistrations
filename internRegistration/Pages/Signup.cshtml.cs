@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 
 namespace internRegistration.Pages
 {
+
+
     public class SignupModel : PageModel
     {
 
@@ -61,7 +63,7 @@ namespace internRegistration.Pages
             }
             catch (Exception ex)
             {
-                successMessage = ex.Message;
+                errorMessage = ex.Message;
                 
             }
         }
