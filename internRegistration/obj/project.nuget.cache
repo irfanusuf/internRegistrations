@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l5JLpwCPsvXod4TEcaRJqLF/orb6E6DYSJgPDLUQlH0uFGG10TO2qpNmPGZiaInF8EpX5FzrTqOtQFjJEKXUhA==",
+  "dgSpecHash": "0DiPQV0JeU422x19WDL7t2uP/QBu11q7CM/7xrDqo/JUCOEqLi2WFLDvt/UkK1eQ7PxEjPLJwsL0G8rLqDqe7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\ibn usuf\\Desktop\\internRegistrations\\internRegistration\\internRegistration.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ibn usuf\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\ibn usuf\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\ibn usuf\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ibn usuf\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

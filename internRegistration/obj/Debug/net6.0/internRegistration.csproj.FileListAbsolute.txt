@@ -150,3 +150,4 @@ C:\Users\ibn usuf\Desktop\internRegistrations\internRegistration\obj\Debug\net6.
 C:\Users\ibn usuf\Desktop\internRegistrations\internRegistration\obj\Debug\net6.0\internRegistration.pdb
 C:\Users\ibn usuf\Desktop\internRegistrations\internRegistration\obj\Debug\net6.0\internRegistration.genruntimeconfig.cache
 C:\Users\ibn usuf\Desktop\internRegistrations\internRegistration\obj\Debug\net6.0\ref\internRegistration.dll
+C:\Users\ibn usuf\Desktop\internRegistrations\internRegistration\bin\Debug\net6.0\BCrypt.Net-Next.dll

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
+using BCrypt.Net;
 
 namespace internRegistration.Pages
 {
@@ -28,11 +29,22 @@ namespace internRegistration.Pages
             userInfo.Email = Request.Form["Email"];
             userInfo.Password = Request.Form["Password"];
 
+
+            if (userInfo.Firstname.Length == 0 || userInfo.Lastname.Length == 0 || userInfo.Email.Length == 0 || userInfo.Password.Length == 0)
+            {
+                errorMessage = "All feilds are required";
+                return;
+            }
+
+
+
             try
             {
+
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(userInfo.Password);
                 //connection string for connecting with data base 
 
-                String connectionString = "Data Source=.\\sqlexpress;Integrated Security=True";
+                String connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
 
                 //creating a  sql connection by paasing the connection string 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -40,8 +52,8 @@ namespace internRegistration.Pages
                     connection.Open();    // opening a connection 
 
                     String sql = "INSERT INTO Users" +
-                        "(Firstname , Lastname , Email ,Password ) VALUES " +
-                        "( @Firstname  , @Lastname , @Email ,@Password );";
+                        "(Firstname, Lastname, Email, Password) VALUES " +
+                        "(@Firstname, @Lastname, @Email, @Password)";
 
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
@@ -51,7 +63,7 @@ namespace internRegistration.Pages
                         command.Parameters.AddWithValue("@Firstname", userInfo.Firstname);
                         command.Parameters.AddWithValue("@Lastname", userInfo.Lastname);
                         command.Parameters.AddWithValue("@Email", userInfo.Email);
-                        command.Parameters.AddWithValue("@Password", userInfo.Password);
+                        command.Parameters.AddWithValue("@Password", hashedPassword);
 
 
 
@@ -63,9 +75,16 @@ namespace internRegistration.Pages
             }
             catch (Exception ex)
             {
-                errorMessage = ex.Message;
+                Console.WriteLine(ex.ToString());
                 
             }
+
+            userInfo.Firstname = "";
+            userInfo.Lastname = "";
+            userInfo.Email = "";
+            userInfo.Password = "";
+            Response.Redirect("/Login");
+
         }
     }
 }

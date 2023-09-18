@@ -1,61 +1,45 @@
 ﻿@page
-@model internRegistration.Pages.SignupModel
+@model internRegistration.Pages.LoginModel
 @{
 }
-<br>
-<h2> Register With Us  </h2>
 
-
+<h2> Login
+</h2>
 @if (Model.errorMessage.Length > 0)
 {
     <div class=" alert alert-warning alert-dismissible fade show " role="alert">
         <strong> @Model.errorMessage</strong>
         <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-    </div> }
-
+    </div>
+} 
 
 <form method="POST">
-    <div class=" row mb-3">
-        <label class=" col-sm-3 col-form-label ">First Name</label>
-        <div class=" col-sm-6">
-            <input type="text" class="form-control" name="Firstname" value="@Model.userInfo.Firstname" />
-        </div>
-    </div>
-
-    <div class=" row mb-3">
-        <label class=" col-sm-3 col-form-label "> Last Name</label>
-        <div class=" col-sm-6">
-            <input type="text" class="form-control" name="Lastname" value="@Model.userInfo.Lastname" />
-        </div>
-    </div>
+    
 
     <div class=" row mb-3">
         <label class=" col-sm-3 col-form-label "> Email</label>
         <div class=" col-sm-6">
-            <input type="email" class="form-control" name="Email" value="@Model.userInfo.Email" />
+            <input type="text" class="form-control" name="Email" value="@Model.loginInfo.Email" />
         </div>
     </div>
+
+    
 
     <div class=" row mb-3">
-        <label class=" col-sm-3 col-form-label ">Password</label>
+        <label class=" col-sm-3 col-form-label ">Address</label>
         <div class=" col-sm-6">
-            <input type="password" class="form-control" name="Password" value="@Model.userInfo.Password" />
+            <input type="password" class="form-control" name="Password" value="@Model.loginInfo.Password" />
         </div>
     </div>
 
-    @if (Model.successMessage.Length > 0)
+    @* @if (Model.successMessage.Length > 0)
     {
         <div class=" alert alert-success alert-dismissible fade show " role="alert">
-
-
             <strong> @Model.successMessage</strong>
-
-
-
             <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
         </div>
     }
-
+ *@
 
 
     <div class="row mb-3">
@@ -69,3 +53,4 @@
     </div>
 
 </form>
+
