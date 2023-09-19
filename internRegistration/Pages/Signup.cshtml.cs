@@ -10,7 +10,12 @@ namespace internRegistration.Pages
     public class SignupModel : PageModel
     {
 
-    
+        private readonly string connectionString;
+
+        public SignupModel(IConfiguration configuration)
+        {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
 
 
         public UserInfo userInfo = new UserInfo();
@@ -42,9 +47,7 @@ namespace internRegistration.Pages
             {
 
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(userInfo.Password);
-                //connection string for connecting with data base 
-
-                String connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
+               
 
                 //creating a  sql connection by paasing the connection string 
                 using (SqlConnection connection = new SqlConnection(connectionString))

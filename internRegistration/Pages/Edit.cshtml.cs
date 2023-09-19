@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
 
@@ -10,14 +11,19 @@ namespace internRegistration.Pages
         public string errorMessage = "";
         public string successMessage = "";
 
+        private readonly string connectionString;
 
+        public EditModel(IConfiguration configuration)
+        {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
 
         public void OnGet()
         {
             String id = Request.Query["id"];
             try
             {
-                String connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=internsDatabase;Integrated Security=True";
+                
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -64,7 +70,6 @@ namespace internRegistration.Pages
             }
             try
             {
-                String connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=internsDatabase;Integrated Security=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

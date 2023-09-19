@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
 namespace internRegistration.Pages
@@ -7,16 +8,29 @@ namespace internRegistration.Pages
     public class CreateModel : PageModel
 
     {
+
+
+        private readonly string connectionString;
+
+        public CreateModel(IConfiguration configuration)
+        {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
+
         public InternInfo internInfo = new InternInfo();
         public string errorMessage = "";
         public string successMessage = "";
+
+
+
+
         public void OnGet()
         {
         }
 
-        public void OnPost() 
-        { 
-            internInfo.name =Request.Form["name"];
+        public void OnPost()
+        {
+            internInfo.name = Request.Form["name"];
             internInfo.email = Request.Form["email"];
             internInfo.phone = Request.Form["phone"];
             internInfo.address = Request.Form["address"];
@@ -29,10 +43,10 @@ namespace internRegistration.Pages
             // save the new client into the database
             try
             {
-                String connectionString = "Data Source=.\\sqlexpress;Integrated Security=True";
+              
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connection .Open();
+                    connection.Open();
                     String sql = "INSERT INTO interns" +
                         "(name , email , phone ,address ) VALUES " +
                         "( @name , @email , @phone ,@address );";
@@ -50,7 +64,7 @@ namespace internRegistration.Pages
             }
             catch (Exception ex)
             {
-                errorMessage= ex.Message;
+                errorMessage = ex.Message;
                 return;
             }
 
@@ -58,8 +72,8 @@ namespace internRegistration.Pages
 
 
             internInfo.name = " ";
-            internInfo.email = " "; 
-            internInfo.phone = " "; 
+            internInfo.email = " ";
+            internInfo.phone = " ";
             internInfo.address = " ";
             successMessage = "New client added suceesfully";
 

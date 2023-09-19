@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
 namespace internRegistration.Pages
@@ -9,7 +10,12 @@ namespace internRegistration.Pages
         public LoginInfo loginInfo = new LoginInfo();
         public string errorMessage = "";
 
+        private readonly string  connectionString ;
 
+        public LoginModel(IConfiguration configuration)
+        {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
 
 
         public void OnGet()
@@ -35,7 +41,7 @@ namespace internRegistration.Pages
 
             try
             {
-                String connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
+               
 
                 //creating a  sql connection by paasing the connection string 
                 using (SqlConnection connection = new SqlConnection(connectionString))
