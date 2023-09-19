@@ -2,10 +2,11 @@
 @model internRegistration.Pages.LoginModel
 @{
 }
+<br />
 
-<h2> Login
-</h2>
-@if (Model.errorMessage.Length > 0)
+<h2> Login </h2>
+
+ @if (Model.errorMessage.Length > 0)
 {
     <div class=" alert alert-warning alert-dismissible fade show " role="alert">
         <strong> @Model.errorMessage</strong>
@@ -13,29 +14,33 @@
     </div>
 } 
 
+
 <form method="POST">
-    
+   
 
     <div class=" row mb-3">
         <label class=" col-sm-3 col-form-label "> Email</label>
         <div class=" col-sm-6">
-            <input type="text" class="form-control" name="Email" value="@Model.loginInfo.Email" />
+            <input type="email" class="form-control" name="Email" value="@Model.loginInfo.Email" />
         </div>
     </div>
 
-    
-
     <div class=" row mb-3">
-        <label class=" col-sm-3 col-form-label ">Address</label>
+        <label class=" col-sm-3 col-form-label ">Password</label>
         <div class=" col-sm-6">
             <input type="password" class="form-control" name="Password" value="@Model.loginInfo.Password" />
         </div>
     </div>
 
-    @* @if (Model.successMessage.Length > 0)
+   @*  @if (Model.successMessage.Length > 0)
     {
         <div class=" alert alert-success alert-dismissible fade show " role="alert">
+
+
             <strong> @Model.successMessage</strong>
+
+
+
             <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
         </div>
     }

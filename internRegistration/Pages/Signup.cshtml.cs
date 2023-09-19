@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
-using BCrypt.Net;
+using BCrypt.Net;     
 
 namespace internRegistration.Pages
 {

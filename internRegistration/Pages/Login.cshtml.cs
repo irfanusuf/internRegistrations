@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
-using BCrypt.Net;
 
 namespace internRegistration.Pages
 {
@@ -10,42 +9,52 @@ namespace internRegistration.Pages
         public LoginInfo loginInfo = new LoginInfo();
         public string errorMessage = "";
         public string successMessage = "";
-
         public void OnGet()
         {
         }
-        public void OnPost()
-        {
 
+
+        public void OnPost()
+
+
+        {
             loginInfo.Email = Request.Form["Email"];
             loginInfo.Password = Request.Form["Password"];
+
             try
             {
-                // Your SQL Server connection string
-                string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
+                String connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
 
+                //creating a  sql connection by paasing the connection string 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+                    String sql = "SELECT Email, Password FROM Users WHERE Email = @Email";
 
-                    string sql = "SELECT Email, Password FROM Users WHERE Email = @Email";
+
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
+                        // passing the data from userinfo into sql query
+
+
                         command.Parameters.AddWithValue("@Email", loginInfo.Email);
+
+
+
+
+
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                string storedPasswordHash = reader["Password"].ToString();
+                                String storedHash = reader["Password"].ToString();
 
-                                // Verify the provided password against the stored hash
-                                if (BCrypt.Net.BCrypt.Verify(loginInfo.Password, storedPasswordHash))
+
+                                if (BCrypt.Net.BCrypt.Verify(loginInfo.Password, storedHash))
                                 {
-                                    // Successful login
 
-                                    // Redirect to a secure page after successful login
                                     Response.Redirect("/List");
                                 }
                             }
@@ -53,16 +62,12 @@ namespace internRegistration.Pages
                     }
                 }
 
-                // Failed login
-                errorMessage = "Invalid email or password.";
-
+                errorMessage = "Correct credentailals Required";
             }
             catch (Exception ex)
             {
-                errorMessage = ex.Message;
-
+                Console.WriteLine(ex.ToString());
             }
         }
-
     }
 }
