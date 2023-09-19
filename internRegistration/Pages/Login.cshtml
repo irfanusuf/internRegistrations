@@ -21,30 +21,17 @@
     <div class=" row mb-3">
         <label class=" col-sm-3 col-form-label "> Email</label>
         <div class=" col-sm-6">
-            <input type="email" class="form-control" name="Email" value="@Model.loginInfo.Email" />
+            <input type="email" class="form-control" name="Email" placeholder="Enter Your Email Here" value="@Model.loginInfo.Email" required />
         </div>
     </div>
 
     <div class=" row mb-3">
         <label class=" col-sm-3 col-form-label ">Password</label>
         <div class=" col-sm-6">
-            <input type="password" class="form-control" name="Password" value="@Model.loginInfo.Password" />
+            <input type="password" class="form-control" name="Password" placeholder="Enter Your Password Here" value="@Model.loginInfo.Password" required/>
         </div>
     </div>
 
-   @*  @if (Model.successMessage.Length > 0)
-    {
-        <div class=" alert alert-success alert-dismissible fade show " role="alert">
-
-
-            <strong> @Model.successMessage</strong>
-
-
-
-            <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-        </div>
-    }
- *@
 
 
     <div class="row mb-3">

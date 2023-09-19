@@ -8,7 +8,10 @@ namespace internRegistration.Pages
     {
         public LoginInfo loginInfo = new LoginInfo();
         public string errorMessage = "";
-        public string successMessage = "";
+
+
+
+
         public void OnGet()
         {
         }
@@ -20,6 +23,15 @@ namespace internRegistration.Pages
         {
             loginInfo.Email = Request.Form["Email"];
             loginInfo.Password = Request.Form["Password"];
+
+            // throw error if feilds are empty
+
+            if ( loginInfo.Email.Length == 0 || loginInfo.Password.Length == 0)
+            {
+                errorMessage = "All feilds are required";
+                return;
+            }
+
 
             try
             {
@@ -42,27 +54,37 @@ namespace internRegistration.Pages
 
 
 
-
-
+                        
+                        //Executing Reader on data base 
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
+
+                            //reading hashed Passowrd from data base 
                             if (reader.Read())
                             {
                                 String storedHash = reader["Password"].ToString();
 
 
-                                if (BCrypt.Net.BCrypt.Verify(loginInfo.Password, storedHash))
-                                {
 
+                                // comapring storedhash with password from login form 
+
+                                if (BCrypt.Net.BCrypt.Verify(loginInfo.Password, storedHash))
+
+                                    //if Succesful Login then redirect to the secured page 
+                                {
                                     Response.Redirect("/List");
+                                }
+                                else
+                                {
+                                    errorMessage = "Database Error";
                                 }
                             }
                         }
                     }
                 }
 
-                errorMessage = "Correct credentailals Required";
+                errorMessage = "Login failed";
             }
             catch (Exception ex)
             {
